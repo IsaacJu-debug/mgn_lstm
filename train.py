@@ -52,7 +52,8 @@ def train(dataset, device, stats_list, args, comp_args, PATH=None):
 
 
     wandb_name = args.model_name
-    wandb.init(project=args.project_name, entity=args.wandb_usr, name=wandb_name)
+    wandb.init(mode="disabled") # turn off wandb logging
+    #wandb.init(project=args.project_name, entity=args.wandb_usr, name=wandb_name)
     wandb.config.update(args)
 
     #args.anim_name = model_name
@@ -181,7 +182,7 @@ def train(dataset, device, stats_list, args, comp_args, PATH=None):
 
         total_loss /= num_loops
         losses.append(total_loss)
-        wandb.log({"train_loss": total_loss.item()})
+        
         #Every tenth epoch, calculate acceleration test loss and velocity validation loss
         if epoch % 10 == 0:
             if (args.save_velo_val):
