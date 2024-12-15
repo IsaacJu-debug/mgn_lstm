@@ -1,7 +1,6 @@
 # MGN-LSTM - Learning CO2 Plume Migration in Faulted Reservoirs with Graph Neural Networks
-[![DOI]](https://www.sciencedirect.com/science/article/pii/S0098300424001948)
 
-This repository is the implementation of  [U-FNO] (https://www.sciencedirect.com/science/article/pii/S0098300424001948), a novel graph neural network architecture for building physics-informed surrogate models of CO₂-water multiphase flow in carbon capture and storage (CCS) reservoirs with complex fault systems. Our model combines Message-Passing Graph Neural Networks with Long Short-Term Memory networks to achieve stable long-term predictions of CO₂ plume migration in heterogeneous geological formations. The architecture is specifically designed to handle unstructured simulation meshes and accurately capture flow dynamics around geological faults.
+This repository is the implementation of [MGN-LSTM](https://www.sciencedirect.com/science/article/pii/S0098300424001948), a novel graph neural network architecture for building physics-informed surrogate models of CO₂-water multiphase flow in carbon capture and storage (CCS) reservoirs with complex fault systems. Our model combines Message-Passing Graph Neural Networks with Long Short-Term Memory networks to achieve stable long-term predictions of CO₂ plume migration in heterogeneous geological formations. The architecture is specifically designed to handle unstructured simulation meshes and accurately capture flow dynamics around geological faults.
 
 <p align="center"><img src="figs/Schematic_MGN_LSTM.png" alt="MGN-LSTM Architecture" width="800px"></p>
 
