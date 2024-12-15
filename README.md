@@ -4,7 +4,7 @@ This repository is the implementation of MGN-LSTM, a novel graph neural network 
 
 <p align="center"><img src="figs/Schematic_MGN_LSTM.png" alt="MGN-LSTM Architecture" width="800px"></p>
 
-The figure above shows the comparison between high-fidelity numerical simulation (top row) and MGN-LSTM predictions (middle row) for CO₂ saturation evolution in a faulted reservoir over 950 days:
+The figure below compares the high-fidelity numerical simulation (top row) and MGN-LSTM predictions (middle row) for CO₂ saturation evolution in a faulted reservoir over 950 days:
 
 <p align="center"><img src="figs/mesh468_sat_tempo_new.png" alt="Temporal evolution of the CO2 saturation plume." width="800px"></p>
 
@@ -60,7 +60,7 @@ Pre-trained MGN-LSTM models are available [here](https://drive.google.com/drive/
 
 To evaluate the models:
 1. Download the pre-trained weights
-2. Place them in the `mgn_lstm/models` directory
+2. Place them in the `mgn_lstm/best_models` directory
 3. Run the evaluation notebook:
 ```bash
 jupyter notebook evaluate_mgn_lstm_gas.ipynb
