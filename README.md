@@ -1,5 +1,9 @@
-# U-FNO - Learning CO2 plume migration in faulted reservoirs with Graph Neural Networks
-In this work, we introduce a model architecture, [U-FNO] (https://www.sciencedirect.com/science/article/pii/S0309170822000562), for solving a dynamic CO<sub>2</sub>-water multiphase flow problem in the context of carbon capture and storage (CCS). The figure below shows that schematic of U-FNO, where we enhances the experssiveness of [Fourier Neural Operator (FNO)](https://arxiv.org/abs/2010.08895) by appending a mini U-Net path to the Fourier layer. 
+# MGN-LSTM - Learning CO2 plume migration in faulted reservoirs with Graph Neural Networks
+
+In this work, we introduce a model architecture, [MGN-LSTM] (https://www.sciencedirect.com/science/article/pii/S0098300424001948#fig2), for solving a dynamic CO<sub>2</sub>-water multiphase flow problem in the context of carbon capture and storage (CCS). The figure below shows that schematic of MGN-LSTM, where 
+
+<p align="center"><img src="figs/Schematic_MGN_LSTM.png" alt="structure" align="center" width="600px"></p>
+
 
 ## Overview
 
@@ -12,45 +16,61 @@ Later a PEBI dataset will be added to this repo.
 Before running codes, you need to first change corresponding configurable parameters in setup bash files.
 Then, use the following command to build virtual environment and install dependencies on different clusters: 
 
-csevolta: 
+
      source setup_env.sh
      
-Setup files will also yield a startup file (start_env_cypress.sh) that can be used for loading proper module and
+Setup files will also yield a startup file (activate_mgn_lstm.sh) that can be used for loading proper module and
 setting up internet proxy. Once the virtual envoirnment is properly set up, you do not need to install libs again.
 Just use the generated startup file to switch to the proper environment and setup internet proxy. The command to 
 use the startup file is: 
 
-    source start_env_cypress.sh
-
-Note that cypress machine, equipped with A100, compiled with a new version of NVIDIA-SMI, requires a newer combination
-torch-1.11.0+cu113. 
+    source activate_mgn_lstm.sh
    
 ## Datasets
 
-All datasets are placed in the corresponding project folder (GNN+flow) under gpfs directory. The 
-complete absolute path where you can find a dataset is as follow:
-    
-Pebi (in development):
+*  You can download the dataset associated with reproducing the baseline of this work from the following link:
 https://drive.google.com/drive/folders/1IXCqlKnlf8tPsXrfFRyG_F-ehYK-9JZn?usp=sharing
 
-
+* 
 
 ## Pretrained models
 
+*  First, you can directly use our pretrained surrogate models with MGN-LSTM from the following link:
 https://drive.google.com/drive/folders/1V5RvJxm4WiEJVZkKur2cf3nUdtKtzPPY?usp=sharing
 
+* Use 'evaluate_mgn_lstm_gas.ipynb' to evaluate the performance of gas saturation model.
+
+## Running training scripts
+* For training a MGN-LSTM for gas saturation fields, run the following bash command
+    ```bash
+    bash run_lstm_gas.sh
+    ```
+
+* For training a MGN-LSTM for pressure fields, run the following bash command
+     ```bash
+    bash run_lstm_p.sh
+    ```
+  
+## Using pretrained MGN_LSTM
+
+### Download pretrained model
+* The trained model parameters associated with this code can be downloaded [here](https://drive.google.com/drive/folders/1V5RvJxm4WiEJVZkKur2cf3nUdtKtzPPY?usp=sharing)
 
 
-## Examples
-The following examples are all based on an interactive bash session with single GPU. Multi-GPU jobs are not configured yet. 
+## Issues?
+* If you have an issue in running the code please [raise an issue](https://github.com/IsaacJu-debug/mgn_lstm/issues)
 
-Python script:
-
-    cd /folder/where/you/put/the/scripts
-    
-    python ./train.py --num_layers 12 --hidden_dim 20 --train_size 40 --test_size 10 > ./main_out/main_000.out
-    
-
- 
-
+## Citation
+If you find our work useful and relevant to your research, please cite:
+```
+@article{ju2024learning,
+        title={Learning CO2 plume migration in faulted reservoirs with Graph Neural Networks},
+        author={Ju, Xin and Hamon, Fran{\c{c}}ois P and Wen, Gege and Kanfar, Rayan and Araya-Polo, Mauricio and Tchelepi, Hamdi A},
+        journal={Computers \& Geosciences},
+        volume={193},
+        pages={105711},
+        year={2024},
+        publisher={Elsevier}
+}
+```
 
