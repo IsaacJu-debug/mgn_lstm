@@ -1,8 +1,13 @@
 # MGN-LSTM - Learning CO2 Plume Migration in Faulted Reservoirs with Graph Neural Networks
 
-This repository contains the implementation of MGN-LSTM, a novel model architecture for simulating CO₂-water multiphase flow in carbon capture and storage (CCS) applications. Our model combines Message-Passing Graph Neural Networks with Long Short-Term Memory networks to accurately predict CO₂ plume migration in heterogeneous geological formations.
+This repository is the implementation of MGN-LSTM, a novel graph neural network architecture for building physics-informed surrogate models of CO₂-water multiphase flow in carbon capture and storage (CCS) reservoirs with complex fault systems. Our model combines Message-Passing Graph Neural Networks with Long Short-Term Memory networks to achieve stable long-term predictions of CO₂ plume migration in heterogeneous geological formations. The architecture is specifically designed to handle unstructured simulation meshes and accurately capture flow dynamics around geological faults.
 
-<p align="center"><img src="figs/Schematic_MGN_LSTM.png" alt="MGN-LSTM Architecture" width="600px"></p>
+<p align="center"><img src="figs/Schematic_MGN_LSTM.png" alt="MGN-LSTM Architecture" width="800px"></p>
+
+The figure above shows the comparison between high-fidelity numerical simulation (top row) and MGN-LSTM predictions (middle row) for CO₂ saturation evolution in a faulted reservoir over 950 days:
+
+<p align="center"><img src="figs/mesh468_sat_tempo_new.png" alt="Temporal evolution of the CO2 saturation plume." width="800px"></p>
+
 
 ## Overview
 
