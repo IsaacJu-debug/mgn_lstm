@@ -1,0 +1,16 @@
+/__pycache__/
+/.ipynb_checkpoints/
+/datasets/
+/best_models/
+/animations/
+/model_details/
+/main_out_p/
+/main_out/
+/2d_loss_plots/
+/wandb/
+/.ipynb_checkpoints/
+/postprocess/.ipynb_checkpoints/
+.DS_Store
+/.DS_Store
+.idea
+*~
