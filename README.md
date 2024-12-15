@@ -1,76 +1,97 @@
-# MGN-LSTM - Learning CO2 plume migration in faulted reservoirs with Graph Neural Networks
+# MGN-LSTM - Learning CO2 Plume Migration in Faulted Reservoirs with Graph Neural Networks
 
-In this work, we introduce a model architecture, [MGN-LSTM] (https://www.sciencedirect.com/science/article/pii/S0098300424001948#fig2), for solving a dynamic CO<sub>2</sub>-water multiphase flow problem in the context of carbon capture and storage (CCS). The figure below shows that schematic of MGN-LSTM, where 
+This repository contains the implementation of MGN-LSTM, a novel model architecture for simulating CO₂-water multiphase flow in carbon capture and storage (CCS) applications. Our model combines Message-Passing Graph Neural Networks with Long Short-Term Memory networks to accurately predict CO₂ plume migration in heterogeneous geological formations.
 
-<p align="center"><img src="figs/Schematic_MGN_LSTM.png" alt="structure" align="center" width="600px"></p>
-
+<p align="center"><img src="figs/Schematic_MGN_LSTM.png" alt="MGN-LSTM Architecture" width="600px"></p>
 
 ## Overview
 
-Current version contains full implmentation python code of GNN-flow and its jupyter notebook version. 
-The repo at this point only contains the hexahedron dataset used for prescreening models. 
-Later a PEBI dataset will be added to this repo. 
+This repository provides:
+- Complete Python implementation of MGN-LSTM
+- A jupyter notebook for evaluating MGN-LSTM performances
+- A faulted PEBI (Perpendicular Bisector) dataset
+- Training scripts for gas saturation and pressure
+- Pre-trained models
 
-## Setup 
+## Requirements
 
-Before running codes, you need to first change corresponding configurable parameters in setup bash files.
-Then, use the following command to build virtual environment and install dependencies on different clusters: 
+- Python 3.10
+- PyTorch 1.9+
+- CUDA-capable GPU (recommended)
+- Additional dependencies listed in `setup_env.sh`
 
+## Installation
 
-     source setup_env.sh
-     
-Setup files will also yield a startup file (activate_mgn_lstm.sh) that can be used for loading proper module and
-setting up internet proxy. Once the virtual envoirnment is properly set up, you do not need to install libs again.
-Just use the generated startup file to switch to the proper environment and setup internet proxy. The command to 
-use the startup file is: 
+1. Clone the repository:
+```bash
+git clone https://github.com/IsaacJu-debug/mgn_lstm.git
+cd mgn_lstm
+```
 
-    source activate_mgn_lstm.sh
-   
+2. Set up the virtual environment:
+```bash
+source setup_env.sh
+```
+
+This will create a virtual environment and install all required dependencies. The script also generates an activation file (`activate_mgn_lstm.sh`) for future use.
+
+3. For subsequent uses, activate the environment:
+```bash
+source activate_mgn_lstm.sh
+```
+
 ## Datasets
 
-*  You can download the dataset associated with reproducing the baseline of this work from the following link:
-https://drive.google.com/drive/folders/1IXCqlKnlf8tPsXrfFRyG_F-ehYK-9JZn?usp=sharing
+Download the benchmark datasets from our [Google Drive repository](https://drive.google.com/drive/folders/1IXCqlKnlf8tPsXrfFRyG_F-ehYK-9JZn?usp=sharing):
 
-* 
+- `meshPEBI_sg.pt`: Gas saturation field data
+- `meshPEBI_p.pt`: Gas pressure field data
 
-## Pretrained models
+Place the downloaded files in the `mgn_lstm/datasets` directory.
 
-*  First, you can directly use our pretrained surrogate models with MGN-LSTM from the following link:
-https://drive.google.com/drive/folders/1V5RvJxm4WiEJVZkKur2cf3nUdtKtzPPY?usp=sharing
+## Pre-trained Models
 
-* Use 'evaluate_mgn_lstm_gas.ipynb' to evaluate the performance of gas saturation model.
+Pre-trained MGN-LSTM models are available [here](https://drive.google.com/drive/folders/1V5RvJxm4WiEJVZkKur2cf3nUdtKtzPPY?usp=sharing). 
 
-## Running training scripts
-* For training a MGN-LSTM for gas saturation fields, run the following bash command
-    ```bash
-    bash run_lstm_gas.sh
-    ```
+To evaluate the models:
+1. Download the pre-trained weights
+2. Place them in the `mgn_lstm/models` directory
+3. Run the evaluation notebook:
+```bash
+jupyter notebook evaluate_mgn_lstm_gas.ipynb
+```
 
-* For training a MGN-LSTM for pressure fields, run the following bash command
-     ```bash
-    bash run_lstm_p.sh
-    ```
-  
-## Using pretrained MGN_LSTM
+## Training
 
-### Download pretrained model
-* The trained model parameters associated with this code can be downloaded [here](https://drive.google.com/drive/folders/1V5RvJxm4WiEJVZkKur2cf3nUdtKtzPPY?usp=sharing)
+### Gas Saturation Model
+```bash
+bash run_lstm_gas.sh
+```
 
+### Pressure Field Model
+```bash
+bash run_lstm_p.sh
+```
 
-## Issues?
-* If you have an issue in running the code please [raise an issue](https://github.com/IsaacJu-debug/mgn_lstm/issues)
+## Issues
+
+If you encounter any problems, please [open an issue](https://github.com/IsaacJu-debug/mgn_lstm/issues).
 
 ## Citation
-If you find our work useful and relevant to your research, please cite:
-```
+
+If you find this work useful in your research, please cite:
+```bibtex
 @article{ju2024learning,
-        title={Learning CO2 plume migration in faulted reservoirs with Graph Neural Networks},
-        author={Ju, Xin and Hamon, Fran{\c{c}}ois P and Wen, Gege and Kanfar, Rayan and Araya-Polo, Mauricio and Tchelepi, Hamdi A},
-        journal={Computers \& Geosciences},
-        volume={193},
-        pages={105711},
-        year={2024},
-        publisher={Elsevier}
+    title={Learning CO2 plume migration in faulted reservoirs with Graph Neural Networks},
+    author={Ju, Xin and Hamon, Fran{\c{c}}ois P and Wen, Gege and Kanfar, Rayan and Araya-Polo, Mauricio and Tchelepi, Hamdi A},
+    journal={Computers \& Geosciences},
+    volume={193},
+    pages={105711},
+    year={2024},
+    publisher={Elsevier}
 }
 ```
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
