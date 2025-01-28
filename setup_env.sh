@@ -2,7 +2,7 @@
 
 # Configurable parameters
 VIRTUAL_NAME=mgn_lstm
-TARGET_ROOT=/home/groups/tchelepi/ju1/02_dl_modeling/04_research_projects/01_gnn_flow/03_github_version/env
+TARGET_ROOT= #/folder/where/your/setup/env
 PYTHON_VERSION=3.10
 PYTORCH_VERSION=2.2.0
 CUDA_VERSION=11.8
